@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Message Dashboard</title>
+</head>
+<body>
+	<h2>The Dojo Message Borad</h2>
+	<hr>
+	<form action="/post/new" method="post">
+
+		<label>Name:</label><br>
+		<input type="text" name="name"><br>
+		<label>Message:</label><br>
+		<textarea name="post"></textarea><br>
+		<input type="submit" value="Post Message">
+
+		<% for (let post of posts){%>
+		<h2>Name:<%=post.name%></h2>
+		<h2>Message:<%=post.post%></h2>
+
+		<% for(let comment of post.comments){%>
+		<h4>Commented by:<%=comment.name%></h4>
+		<h4>Comment:<%=comment.comment%></h4>
+		<%}%>
+		<hr>
+
+		<form action="/post/<%=post._id%>" method="post">
+
+		<label>Name:</label><br>
+		<input type="text" name="name"><br>
+		<label>Message:</label><br>
+		<textarea name="comment"></textarea><br>
+		<input type="submit" value="Post Comment">	
+		</form>
+		<%}%>
+
+</body>
+</html>
