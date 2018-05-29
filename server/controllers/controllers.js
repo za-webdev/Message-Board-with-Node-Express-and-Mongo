@@ -15,26 +15,6 @@ class UserController{
 		});
 	}
 
-
-	// allComments(req,res){
-
-	// 	Post.findOne({_id: req.params.id})
- // 			.populate('comments')
- // 			.exec(function(err, post) {
- // 	     	res.render('index', {post: post});
- //        	});
-	// 	};
-
-	// all(req,res){
-	// 	Post.find({})
-	// 	.populate({
-	// 		name:"comments",model:"Comment"}
-	// 		)
-	// 	.exec(function(err,post){
-	// 		res.render('post',{post:post});
-	// 	})
-	// };
-
 	create(req,res){
 		let post = new Post(req.body);
 		console.log(req.body);
@@ -72,38 +52,6 @@ class UserController{
     });
  }
 
-
-// 	update(req,res){
-// 		User.findOne({_id:req.body._id},(err,user)=>{
-// 			user.name=req.body.name;
-// 			user.email=req.body.email;
-// 			user.password=req.body.password;
-
-// 			user.save((err)=>{
-// 				if(err){
-// 					res.redirect("/users/"+user._id);
-// 				}else{
-// 					res.redirect("/users");
-// 				}
-// 			});
-// 		})
-// 	}
-
-// 	findById(req,res){
-// 		User.findOne({_id:req.params.id},(err,user)=>{
-// 			if(err){
-// 				res.redirect("/users");
-// 			}else{
-// 				res.render("user",{user:user});
-// 			}
-// 		});
-// 	}
-
-// 	destroy(req,res){
-// 		User.remove({_id:req.params.id},(err)=>{
-// 			res.redirect("/users");
-// 		});
-// 	}
 }
 
 module.exports = new UserController();
